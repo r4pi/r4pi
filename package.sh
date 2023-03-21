@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PKG_VERSION="0.2.0"
-PKG_ITERATION=1
+PKG_VERSION="0.3.0"
+PKG_ITERATION=2
 
 if [[ ! -d /tmp/output/raspbian-bullseye ]]; then
   mkdir -p /tmp/output/raspbian-bullseye
@@ -21,6 +21,7 @@ fpm \
   --description "R4Pi.org meta-package" \
   --maintainer "r4pi.org https://r4pi.org" \
   --license "MIT" \
+  -a all \
   -d gdal-bin \
   -d libharfbuzz-dev \
   -d libudunits2-0 \
