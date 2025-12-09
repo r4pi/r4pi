@@ -3,8 +3,10 @@
 PKG_VERSION="0.3.0"
 PKG_ITERATION=2
 
-if [[ ! -d /tmp/output/raspbian-bullseye ]]; then
-  mkdir -p /tmp/output/raspbian-bullseye
+source /etc/os-release
+
+if [[ ! -d /tmp/output/raspbian-${VERSION_CODENAME} ]]; then
+  mkdir -p /tmp/output/raspbian-${VERSION_CODENAME}
 fi
 
 
@@ -28,5 +30,5 @@ fpm \
   -d python3 \
   -d r-release \
   -d pandoc \
-  -p /tmp/output/raspbian-bullseye/ \
+  -p /tmp/output/raspbian-${VERSION_CODENAME}/ \
   ./src/=/
